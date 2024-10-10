@@ -1,0 +1,17 @@
+﻿################################################################################
+# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
+################################################################################
+
+*.log
+/MOD_20/Exersice_2/x64/Debug
+/MOD_20/Exersice_3/x64/Debug
+/MOD_20/Exersice_1/x64/Debug
+*.user
+*.filters
+/MOD_20/Exersice_4/x64/Debug
+/MOD_20/Test
+/MOD_20/x64/Debug/Test.exe
+/MOD_20/x64/Debug/Test.pdb
+/MOD_20/.vs/MOD_20/v17
+/.vs
+/MOD_20/.vs/MOD_20/FileContentIndex
