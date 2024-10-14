@@ -15,7 +15,7 @@ void saveState(const std::vector<int>& bills)
 		std::cerr << "Error opening file!";
 		return;
 	}
-	outFile.write((char*)&bills, sizeof(bills));
+	outFile.write(reinterpret_cast<const char*>(bills.data()), bills.size() * sizeof(int));
 	outFile.close();
 }
 
@@ -26,8 +26,9 @@ bool loadFile(std::vector<int>& bills)
 	{
 		return false;
 	}
-	inFile.read((char*)&bills, sizeof(bills));
+	inFile.read(reinterpret_cast<char*>(bills.data()), bills.size() * sizeof(int));
 	inFile.close();
+	return true;
 }
 
 void displayState(const std::vector<int>& bills)
@@ -36,7 +37,7 @@ void displayState(const std::vector<int>& bills)
 	std::cout << "Current ATM status:\n";
 	for (int i = 0; i < nominals.size(); ++i)
 	{
-		std::cout << nominals[i] << " RUB: " << bills[i] << " banknote." << std::endl;
+		std::cout << nominals[i] << " RUB: " << bills[i] << " banknote.\n";
 		totalMoney += nominals[i] * bills[i];
 		totalBills += bills[i];
 	}
