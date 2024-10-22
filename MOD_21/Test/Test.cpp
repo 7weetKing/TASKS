@@ -1,5 +1,7 @@
 ﻿#include <iostream>
+#include <cstdlib>
 #include <string>
+
 struct character
 {
 	std::string name = "unknown";
@@ -21,10 +23,16 @@ void take_damage(character* person, int damage)
 
 int main()
 {
-	character person = { "Ifan-Ben-Mezd",100};
-	person.armor = 20;
-	character* person_ptr = &person;
-	take_damage(&person, 30);
+	character people[10];
+	for (int i = 0; i < 10; ++i)
+	{
+		people[i].name = "Character #" + std::to_string(i);
+		people[i].health = (std::rand() % 100) + 100;
+		people[i].armor = (std::rand() % 40) + 10;
+	}
 
-	std::cout << "Health:" << person.health << " Armor:" << person.armor << std::endl;
+	for (int i = 0; i < 10; ++i)
+	{
+		take_damage(&people[i], 30);
+	}
 }
