@@ -61,10 +61,10 @@ int main()
 		}
 		else if (enter == "add")
 		{
-			std::cout << "Enter first vector (x,y): ";
+			std::cout << "Enter first vector (x,y): " << std::endl;
 			std::cin >> a.x >> a.y;
 
-			std::cout << "Enter second vector (x,y): ";
+			std::cout << "Enter second vector (x,y): " << std::endl;
 			std::cin >> b.x >> b.y;
 
 			vec result = add(a, b);
@@ -73,10 +73,10 @@ int main()
 		}
 		else if (enter == "subtract")
 		{
-			std::cout << "Enter first vector (x,y): ";
+			std::cout << "Enter first vector (x,y): " << std::endl;
 			std::cin >> a.x >> a.y;
 
-			std::cout << "Enter second vector (x,y): ";
+			std::cout << "Enter second vector (x,y): " << std::endl;
 			std::cin >> b.x >> b.y;
 
 			vec result = subtract(a, b);
@@ -85,10 +85,10 @@ int main()
 		}
 		else if (enter == "scale")
 		{
-			std::cout << "Enter vector (x,y): ";
+			std::cout << "Enter vector (x,y): " << std::endl;
 			std::cin >> a.x >> a.y;
 
-			std::cout << "Enter secalar: ";
+			std::cout << "Enter secalar: " << std::endl;
 			std::cin >> scalar;
 
 			vec result = scale(a, scalar);
@@ -97,7 +97,7 @@ int main()
 		}
 		else if (enter == "length")
 		{
-			std::cout << "Enter vector (x,y): ";
+			std::cout << "Enter vector (x,y): " << std::endl;
 			std::cin >> a.x >> a.y;
 			
 			double result = length(a);
@@ -105,7 +105,7 @@ int main()
 		}
 		else if (enter == "normalize")
 		{
-			std::cout << "Enter vector (x,y): ";
+			std::cout << "Enter vector (x,y): " << std::endl;
 			std::cin >> a.x >> a.y;
 
 			vec result = normalize(a);
