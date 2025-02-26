@@ -26,19 +26,27 @@ void end_program()
 	if (program_active)
 	{
 		std::time_t end_time = std::time(nullptr);
-		double time_hour = std::difftime(end_time, start_time);
-		program_times[current_program] += time_hour;
-		std::cout << "Completed task: " << current_program << "spent " << time_hour << " hour" << std::endl;
+		int times = static_cast<int>(std::difftime(end_time, start_time));
+		program_times[current_program] += times;
+		int hours = times / 3600;
+		int minutes = (times % 3600) / 60;
+		int seconds = times % 60;
+		std::cout << "Completed task: " << current_program << " spent " << hours << "h:" << minutes << "m:" << seconds << "s" << std::endl;
 		program_active = false;
 	}
 }
 
 void status()
 {
-	std::cout << "Program status: " << std::endl;
+	std::cout << "Program status: \n";
 	for (const auto& program : program_times)
 	{
-		std::cout << "Task: " << program.first << " - " << program.second << "hour" << std::endl;
+		int total_times = program.second;
+		int hours = total_times / 3600;
+		int minutes = (total_times % 3600) / 60;
+		int seconds = total_times % 60;
+
+		std::cout << "Task: " << program.first << " - " << hours << "h:" << minutes << "m:" << seconds << "s" << std::endl;
 	}
 
 	if (program_active)
@@ -56,11 +64,11 @@ int main()
 		std::cout << "Enter command (begin, end, status, exit): ";
 		std::cin >> com;
 
-		if (com == "begin") {
+		if (com == "begin") 
+		{
 			std::cout << "Enter the task name: ";
 			std::string programs_name;
 			std::cin >> programs_name;
-			std::getline(std::cin, programs_name);
 			start_program(programs_name);
 		}
 		else if (com == "end") 
